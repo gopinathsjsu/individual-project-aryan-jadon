@@ -1,2 +1,9 @@
+test/FlightDirectory.class
+test/BookingDirectory.class
+test/BookingEngine.class
 test/RunClient.class
-test/CreditCards.class
+test/Record.class
+test/Booking.class
+test/Flight.class
+test/IFlightDirectory.class
+test/IBookingDirectory.class
