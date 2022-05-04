@@ -24,7 +24,7 @@ public class BookingEngine {
         this.flightDirectory.loadFlightDetails(file);
     }
     public void initializeBookings(String file) {
-        bookingDirectory.loadBookingDetails(file);
+        this.bookingDirectory.loadBookingDetails(file);
     }
 
     public static Boolean isValidCard(String paymentCardNumber) {
@@ -118,12 +118,12 @@ public class BookingEngine {
 
     }
 
-    public  void printErrors(String file) {
+    public void printErrors(String file) {
         var errorHeader = "";
         writeIntoFile(file,errors,errorHeader);
     }
 
-    private static <T> void writeIntoFile(String arg, ArrayList<T> records,String header) {
+    public static <T> void writeIntoFile(String arg, ArrayList<T> records,String header) {
         FileWriter fw;
         try {
             fw = new FileWriter(arg);
