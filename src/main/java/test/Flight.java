@@ -2,12 +2,12 @@ package test;
 
 public class Flight {
 
-    public String category;
-    public String flightNumber;
-    public int noOfSeats;
-    public float priceOfSeat;
-    public String arrivalCity;
-    public String departureCity;
+    public final String category;
+    public final String flightNumber;
+    public final int noOfSeats;
+    public final float priceOfSeat;
+    public final String arrivalCity;
+    public final String departureCity;
 
     // Constructor
     public Flight(String category, String fightNumber, int noOfSeats,

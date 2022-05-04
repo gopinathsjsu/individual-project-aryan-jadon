@@ -1,11 +1,11 @@
 package test;
 
 public class Booking {
-    public String bookingName;
-    public String flightNumber;
-    public String seatCategory;
-    public int numberOfSeats;
-    public String paymentCardNumber;
+    public final String bookingName;
+    public final String flightNumber;
+    public final String seatCategory;
+    public final int numberOfSeats;
+    public final String paymentCardNumber;
 
     // constructor
     public Booking(String bookingName, String flightNumber, String seatCategory, int numberOfSeats,

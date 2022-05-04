@@ -1,7 +1,5 @@
 package test;
 
-import java.io.File;
-import java.nio.file.FileSystems;
 import java.nio.file.Paths;
 
 import com.google.common.collect.Multimap;
@@ -24,7 +22,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
         String value = String.valueOf(flightDirectory.getAllFlightsDetails().getClass());
 
         assertEquals("class com.google.common.collect.ArrayListMultimap",value);
@@ -42,7 +40,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
         Multimap<String, HashMap> flightEntries = flightDirectory.getAllFlightsDetails();
 
         assertEquals(0,flightEntries.get("WrongEntry").size());
@@ -60,7 +58,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
         Multimap<String, HashMap> flightEntries = flightDirectory.getAllFlightsDetails();
 
         assertEquals(2,flightEntries.get("BY110").size());
@@ -78,7 +76,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
 
         Boolean flightFlag = flightDirectory.DoesFlightExist("BY110","Business");
 
@@ -97,7 +95,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
 
         Boolean flightFlag = flightDirectory.DoesFlightExist("BY210","Business");
 
@@ -116,7 +114,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
 
         float flightPrice = flightDirectory.CalculateTotalPrice("SJ456","Economy","1");
         assertEquals(250.0,flightPrice,0.0);
@@ -134,7 +132,7 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
 
         float flightPrice = flightDirectory.CalculateTotalPrice("SJ456","Economy","1");
 
@@ -154,12 +152,12 @@ public class FlightDirectoryTest {
         String userDirectory = Paths.get("").toAbsolutePath().toString();
         String filePath = userDirectory+ "/DemoFiles/flights.csv";
 
-        bookingEngine.intializeFlights(filePath);
+        bookingEngine.initializeFlights(filePath);
 
         flightDirectory.modifySeats("SJ456","Economy","1");
 
         List<Map.Entry<String, String>> currentRecord = new ArrayList(flightDirectory.FlightDirectoryMap.get("SJ456"));
-        HashMap<String, String> record = new HashMap<String, String>();
+        HashMap<String, String> record;
         record = (HashMap<String, String>) currentRecord.get(0);
 
         assertEquals(4, Integer.parseInt(record.get("AvailableSeats")));

@@ -14,7 +14,7 @@ public class RunClient {
         BookingEngine bookingEngine = new BookingEngine(flightDirectory,bookingDirectory);
 
         // Creating Entries of Flights and Bookings
-        bookingEngine.intializeFlights(args[0]);
+        bookingEngine.initializeFlights(args[0]);
         bookingEngine.initializeBookings(args[1]);
 
         // Process Records

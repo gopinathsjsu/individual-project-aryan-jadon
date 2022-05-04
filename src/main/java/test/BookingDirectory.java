@@ -10,7 +10,7 @@ import java.util.Map;
 public class BookingDirectory implements IBookingDirectory{
 
     // Array List of Query Records
-    List<Map<String, String>> queryRecords = new ArrayList<Map<String, String>>();
+    final List<Map<String, String>> queryRecords = new ArrayList<Map<String, String>>();
 
     private static Booking createBooking(String[] attributes) {
         String bookingName = attributes[0];
@@ -24,7 +24,7 @@ public class BookingDirectory implements IBookingDirectory{
     @Override
     public void loadBookingDetails(String givenFile) {
         // File Reader
-        BufferedReader reader = null ;
+        BufferedReader reader;
 
         // Handling Flight Directory Records
         try{

@@ -12,15 +12,15 @@ public class BookingEngine {
     private final IFlightDirectory flightDirectory;
     private final IBookingDirectory bookingDirectory;
 
-    ArrayList<String> errors = new ArrayList<>();
-    ArrayList<Record> records = new ArrayList<>();
+    final ArrayList<String> errors = new ArrayList<>();
+    final ArrayList<Record> records = new ArrayList<>();
 
     BookingEngine(IFlightDirectory flightDirectory,IBookingDirectory bookingDirectory) {
         this.flightDirectory = flightDirectory;
         this.bookingDirectory = bookingDirectory;
     }
 
-    public void intializeFlights(String file) {
+    public void initializeFlights(String file) {
         this.flightDirectory.loadFlightDetails(file);
     }
     public void initializeBookings(String file) {
@@ -70,7 +70,6 @@ public class BookingEngine {
             if(!result) {
                 errors.add("Please enter correct booking details for "+
                         booking.get("bookingName")+": invalid flight number\n");
-                continue;
             }
             else{
 

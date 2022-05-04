@@ -1,9 +1,9 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -71,13 +71,9 @@ public class BookingEngineTest {
 
         Path outputPath = Paths.get(filePath);
 
-        boolean outputflag = false;
+        boolean outputFlag = Files.exists(outputPath);
 
-        if (Files.exists(outputPath)) {
-            outputflag = true;
-        }
-
-        assertEquals(true, outputflag);
+        assertTrue(outputFlag);
 
         try {
             Files.deleteIfExists(outputPath);
@@ -95,18 +91,14 @@ public class BookingEngineTest {
 
         var errorHeader = "";
         ArrayList<String> errors = new ArrayList<>();
-        errors.add("Loreum Ipsum Text File Test");
+        errors.add("File Test");
 
         BookingEngine.writeIntoFile(filePath,errors,errorHeader);
         Path outputPath = Paths.get(filePath);
 
-        boolean outputflag = false;
+        boolean outputFlag = Files.exists(outputPath);
 
-        if (Files.exists(outputPath)) {
-            outputflag = true;
-        }
-
-        assertEquals(true, outputflag);
+        assertTrue(outputFlag);
 
         try {
             Files.deleteIfExists(outputPath);

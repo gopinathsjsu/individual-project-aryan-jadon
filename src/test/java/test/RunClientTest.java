@@ -1,6 +1,7 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import java.nio.file.*;
@@ -15,36 +16,36 @@ public class RunClientTest {
         BookingEngine bookingEngine = new BookingEngine(flightDirectory,bookingDirectory);
 
         String userDirectory = Paths.get("").toAbsolutePath().toString();
-        String flightsfilePath = userDirectory+ "/DemoFiles/flights.csv";
-        String bookingsfilePath = userDirectory+ "/DemoFiles/Sample.csv";
+        String flightsFilePath = userDirectory+ "/DemoFiles/flights.csv";
+        String bookingsFilePath = userDirectory+ "/DemoFiles/Sample.csv";
 
-        String errorsfilePath = userDirectory+ "/Output.txt";
-        String outputfilePath = userDirectory+ "/Output.csv";
+        String errorsFilePath = userDirectory+ "/Output.txt";
+        String outputFilePath = userDirectory+ "/Output.csv";
 
-        bookingEngine.intializeFlights(flightsfilePath);
-        bookingEngine.initializeBookings(bookingsfilePath);
+        bookingEngine.initializeFlights(flightsFilePath);
+        bookingEngine.initializeBookings(bookingsFilePath);
 
         bookingEngine.process();
 
-        bookingEngine.printReport(outputfilePath);
-        bookingEngine.printErrors(errorsfilePath);
+        bookingEngine.printReport(outputFilePath);
+        bookingEngine.printErrors(errorsFilePath);
 
-        Path outputPath = Paths.get(outputfilePath);
-        Path errorPath = Paths.get(errorsfilePath);
+        Path outputPath = Paths.get(outputFilePath);
+        Path errorPath = Paths.get(errorsFilePath);
 
-        boolean outputflag = false;
-        boolean errorflag = false;
+        boolean outputFlag = false;
+        boolean errorFlag = false;
 
         if (Files.exists(outputPath)) {
-            outputflag = true;
+            outputFlag = true;
         }
 
         if (Files.exists(errorPath)) {
-            errorflag = true;
+            errorFlag = true;
         }
 
-        assertEquals(true,errorflag);
-        assertEquals(true,outputflag);
+        assertTrue(errorFlag);
+        assertTrue(outputFlag);
 
     }
 }

@@ -2,11 +2,11 @@ package test;
 
 public class Record {
 
-    public int noOfSeatsBooked;
-    public float totalPrice;
-    public String bookingName;
-    public String flightNumber;
-    public String categoryName;
+    public final int noOfSeatsBooked;
+    public final float totalPrice;
+    public final String bookingName;
+    public final String flightNumber;
+    public final String categoryName;
 
     // Constructor
     public Record(String bookingName, String flightNumber, String categoryName, int noOfSeatsBooked, float totalPrice) {

@@ -1,1 +1,4 @@
-test/testRunClient.class
+test/FlightDirectoryTest.class
+test/BookingDirectoryTest.class
+test/BookingEngineTest.class
+test/RunClientTest.class

@@ -13,7 +13,7 @@ import java.util.Map;
 public class FlightDirectory implements IFlightDirectory {
 
     // Flight Directory
-    Multimap<String, HashMap> FlightDirectoryMap = ArrayListMultimap.create();
+    final Multimap<String, HashMap> FlightDirectoryMap = ArrayListMultimap.create();
 
     private static Flight createFlight(String[] attributes) {
         String category = attributes[0];
@@ -30,7 +30,7 @@ public class FlightDirectory implements IFlightDirectory {
     @Override
     public void loadFlightDetails(String givenFile) {
         // File Reader
-        BufferedReader reader = null;
+        BufferedReader reader;
 
         // Handling Flight Directory Records
         try {
@@ -80,7 +80,7 @@ public class FlightDirectory implements IFlightDirectory {
             // 2. Validate the Number of Seats Requested for the Category
 
             for (int j = 0; j < currentRecord.size(); j++) {
-                HashMap<String, String> record = new HashMap<String, String>();
+                HashMap<String, String> record;
                 record = (HashMap<String, String>) currentRecord.get(j);
 
                 if (record.get("Category").equalsIgnoreCase(seatCategory)) {
@@ -96,7 +96,7 @@ public class FlightDirectory implements IFlightDirectory {
         List<Map.Entry<String, String>> currentRecord = new ArrayList(FlightDirectoryMap.get(flightNumber));
 
         for (int j = 0; j < currentRecord.size(); j++) {
-            HashMap<String, String> record = new HashMap<String, String>();
+            HashMap<String, String> record;
             record = (HashMap<String, String>) currentRecord.get(j);
 
             if (record.get("Category").equalsIgnoreCase(seatCategory)) {
@@ -105,8 +105,7 @@ public class FlightDirectory implements IFlightDirectory {
 
                 if (availableSeats > requiredSeats) {
                     System.out.println("Seats Validation Completed -- Processing Price");
-                    float totalPrice = requiredSeats * Float.valueOf(record.get("Price"));
-                    return totalPrice;
+                    return requiredSeats * Float.valueOf(record.get("Price"));
                 }
             }
         }
@@ -118,7 +117,7 @@ public class FlightDirectory implements IFlightDirectory {
         List<Map.Entry<String, String>> currentRecord = new ArrayList(FlightDirectoryMap.get(flightNumber));
 
         for (int j = 0; j < currentRecord.size(); j++) {
-            HashMap<String, String> record = new HashMap<String, String>();
+            HashMap<String, String> record;
             record = (HashMap<String, String>) currentRecord.get(j);
 
             if (record.get("Category").equalsIgnoreCase(seatCategory)) {
