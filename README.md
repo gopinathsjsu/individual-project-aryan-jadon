@@ -117,5 +117,6 @@ The Repository pattern is a planned and documented way of working with a data so
 ![](Documentation/Test-Cases-4.png)
 
 ### Output Files
-![](Documentation/Output-CSV File.png)
-![](Documentation/Output-TXT File.png)
+![](Documentation/Output-CSV-File.png)
+
+![](Documentation/Output-TXT-File.png)
