@@ -69,7 +69,7 @@ public class BookingEngine {
 
             if(!result) {
                 errors.add("Please enter correct booking details for "+
-                        booking.get("bookingName")+": invalid flight number\n");
+                        booking.get("bookingName")+": Invalid Flight Number\n");
             }
             else{
 
